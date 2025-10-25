@@ -30,7 +30,7 @@ class CarPositionTest {
         @Test
         void shouldThrowException_whenPositionIsNegative() {
             assertThatThrownBy(() -> createPositionViaReflection(-2))
-                    .hasRootCauseInstanceOf(IllegalStateException.class)
+                    .hasRootCauseInstanceOf(IllegalArgumentException.class)
                     .hasRootCauseMessage(ErrorMessage.NEGATIVE_POSITION.message());
         }
 

@@ -21,7 +21,7 @@ public class CarPosition implements Comparable<CarPosition> {
 
     private void validatePositionRange(final int position) {
         if (position < MINIMUM_POSITION) {
-            throw new IllegalStateException(NEGATIVE_POSITION.message());
+            throw new IllegalArgumentException(NEGATIVE_POSITION.message());
         }
     }
 
