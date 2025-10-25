@@ -29,13 +29,13 @@ public class CarPosition implements Comparable<CarPosition> {
         return new CarPosition(this.position + 1);
     }
 
-    public int getPosition() {
+    public int value() {
         return position;
     }
 
     @Override
     public int compareTo(final CarPosition o) {
-        return this.position - o.getPosition();
+        return this.position - o.value();
     }
 
     @Override

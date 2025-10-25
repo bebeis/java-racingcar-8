@@ -56,7 +56,7 @@ class CarPositionTest {
         @DisplayName("초기 객체 생성 시 Position은 0이어야 한다.")
         @Test
         void positionShouldBeZero_whenInit() {
-            int positionValue = carPosition.getPosition();
+            int positionValue = carPosition.value();
             assertThat(positionValue).isEqualTo(0);
         }
 
@@ -64,13 +64,13 @@ class CarPositionTest {
         @Test
         void moveNextOnce_incrementsOne() {
             // given
-            int beforePositionValue = carPosition.getPosition();
+            int beforePositionValue = carPosition.value();
 
             // when
             CarPosition afterPosition = carPosition.moveNext();
 
             // then
-            assertThat(afterPosition.getPosition()).isEqualTo(1);
+            assertThat(afterPosition.value()).isEqualTo(1);
         }
     }
 
