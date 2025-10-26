@@ -9,9 +9,7 @@ public interface RacingGame {
 
     void setUpCarNames(List<String> carNames);
 
-    void setUpTryCount(int tryCount);
-
-    List<RoundSnapShot> play();
+    List<RoundSnapShot> playRounds(int tryCount);
 
     List<WinnerResponse> getWinners();
 }
