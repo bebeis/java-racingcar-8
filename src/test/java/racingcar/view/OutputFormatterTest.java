@@ -70,4 +70,33 @@ class OutputFormatterTest {
         assertThat(result).isEqualTo(expected);
     }
 
+    @DisplayName("우승자가 1명인 경우에 포맷팅한다.")
+    @Test
+    void formattingSingleWinner() {
+        // given
+        CarStatus winner = new CarStatus("bebe", 1);
+
+        // when
+        String formatted = formatter.formatWinners(List.of(winner));
+
+        // then
+        assertThat(formatted).isEqualTo("bebe");
+    }
+
+    @DisplayName("우승자가 2명 이상인 경우에 포맷팅한다.")
+    @Test
+    void formattingMultipleWinner() {
+        // given
+        List<CarStatus> winners = List.of(
+                new CarStatus("bebe", 2),
+                new CarStatus("pobi", 3)
+        );
+
+        // when
+        String formatted = formatter.formatWinners(winners);
+
+        // then
+        assertThat(formatted).isEqualTo("bebe, pobi");
+    }
+
 }
