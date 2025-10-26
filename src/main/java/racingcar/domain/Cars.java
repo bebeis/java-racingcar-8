@@ -3,10 +3,8 @@ package racingcar.domain;
 import racingcar.strategy.MoveStrategy;
 
 import java.util.List;
-import java.util.TreeMap;
 
-import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.toList;
+import static java.util.Comparator.naturalOrder;
 import static racingcar.error.ErrorMessage.EMPTY_CAR_LIST;
 
 public class Cars {
@@ -27,11 +25,14 @@ public class Cars {
         cars.forEach(car -> car.moveDeterminedBy(strategy));
     }
 
-    public List<Car> getWinners() {
+    public List<Car> determineWinners() {
+        Car winner = cars.stream()
+                .max(naturalOrder())
+                .orElseThrow(() -> new IllegalStateException(EMPTY_CAR_LIST.message()));
+
         return cars.stream()
-                .collect(groupingBy(Car::positionValue, TreeMap::new, toList()))
-                .lastEntry()
-                .getValue();
+                .filter(winner::isSamePosition)
+                .toList();
     }
 
     public List<Car> getCars() {

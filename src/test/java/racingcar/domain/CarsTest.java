@@ -107,7 +107,7 @@ class CarsTest {
             cars.moveAll(strategy);
             cars.moveAll(strategy);
             cars.moveAll(strategy);
-            List<Car> winners = cars.getWinners();
+            List<Car> winners = cars.determineWinners();
 
             // then
             assertThat(winners).hasSize(1);
@@ -126,7 +126,7 @@ class CarsTest {
             // when
             cars.moveAll(strategy);
             cars.moveAll(strategy);
-            List<Car> winners = cars.getWinners();
+            List<Car> winners = cars.determineWinners();
 
             // then
             assertThat(winners).hasSize(2);
@@ -144,7 +144,7 @@ class CarsTest {
 
             // when
             cars.moveAll(strategy);
-            List<Car> winners = cars.getWinners();
+            List<Car> winners = cars.determineWinners();
 
             // then
             assertThat(winners).hasSize(3);
