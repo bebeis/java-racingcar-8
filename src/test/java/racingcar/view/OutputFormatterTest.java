@@ -33,13 +33,12 @@ class OutputFormatterTest {
         String result = formatter.formatRoundSnapShots(List.of(snapShot));
 
         // then
-        assertThat(result).isEqualTo(
-                """
-                        bebe : --
-                        hehe : ---
-                        pobi :
-                        """
-        );
+        String expected = """
+                bebe : --
+                hehe : ---
+                pobi :\s
+                """;
+        assertThat(result).isEqualTo(expected);
     }
 
     @DisplayName("라운드 스냅샷 여러 개를 빈 줄로 구분하여 포맷팅한다")
@@ -61,15 +60,14 @@ class OutputFormatterTest {
         String result = formatter.formatRoundSnapShots(snapShots);
 
         // then
-        assertThat(result).isEqualTo(
-                """
-                        bebe : -
-                        hehe :
-                        
-                        bebe : --
-                        hehe : -
-                        """
-        );
+        String expected = """
+                bebe : -
+                hehe :\s
+                
+                bebe : --
+                hehe : -
+                """;
+        assertThat(result).isEqualTo(expected);
     }
 
 }
