@@ -4,8 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.strategy.AlwaysMoveStrategy;
-import racingcar.domain.strategy.NeverMoveStrategy;
+import racingcar.stub.strategy.AlwaysMoveStrategy;
+import racingcar.stub.strategy.NeverMoveStrategy;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

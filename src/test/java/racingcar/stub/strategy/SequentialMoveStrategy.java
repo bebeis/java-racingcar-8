@@ -1,4 +1,6 @@
-package racingcar.domain.strategy;
+package racingcar.stub.strategy;
+
+import racingcar.domain.strategy.MoveStrategy;
 
 import java.util.Arrays;
 import java.util.LinkedList;
