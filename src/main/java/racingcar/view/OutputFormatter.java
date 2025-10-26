@@ -12,6 +12,7 @@ public class OutputFormatter {
     private static final String POSITION_MARKER = "-";
     private static final String CAR_SEPARATOR = "\n";
     private static final String ROUND_SEPARATOR = "\n\n";
+    private static final String NAME_SEPARATOR = ", ";
     private static final String END_LINE = "\n";
 
     public String formatRoundSnapShots(final List<RoundSnapShot> snapShots) {
@@ -29,5 +30,11 @@ public class OutputFormatter {
 
     private String formatCarStatus(final CarStatus status) {
         return status.name() + NAME_POSITION_DELIMITER + POSITION_MARKER.repeat(status.position());
+    }
+
+    public String formatWinners(final List<CarStatus> winners) {
+        return winners.stream()
+                .map(CarStatus::name)
+                .collect(Collectors.joining(NAME_SEPARATOR));
     }
 }
