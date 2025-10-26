@@ -1,7 +1,7 @@
 package racingcar.service;
 
+import racingcar.service.dto.CarStatus;
 import racingcar.service.dto.RoundSnapShot;
-import racingcar.service.dto.WinnerResponse;
 
 import java.util.List;
 
@@ -11,5 +11,5 @@ public interface GameService {
 
     List<RoundSnapShot> playRounds(int tryCount);
 
-    List<WinnerResponse> getWinners();
+    List<CarStatus> getWinners();
 }

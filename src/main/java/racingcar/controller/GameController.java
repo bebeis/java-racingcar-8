@@ -1,8 +1,8 @@
 package racingcar.controller;
 
 import racingcar.service.GameService;
+import racingcar.service.dto.CarStatus;
 import racingcar.service.dto.RoundSnapShot;
-import racingcar.service.dto.WinnerResponse;
 import racingcar.util.CommaSeparator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -28,7 +28,7 @@ public class GameController {
         List<RoundSnapShot> roundSnapShots = gameService.playRounds(tryCount);
         outputView.showRoundSnapShots(roundSnapShots);
 
-        List<WinnerResponse> winners = gameService.getWinners();
+        List<CarStatus> winners = gameService.getWinners();
         outputView.showWinners(winners);
     }
 }

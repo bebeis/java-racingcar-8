@@ -1,8 +1,8 @@
 package racingcar.controller;
 
 import racingcar.service.GameService;
+import racingcar.service.dto.CarStatus;
 import racingcar.service.dto.RoundSnapShot;
-import racingcar.service.dto.WinnerResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +20,9 @@ public class StubGameService implements GameService {
 
     // 반환할 값
     private final List<RoundSnapShot> roundSnapShots;
-    private final List<WinnerResponse> winners;
+    private final List<CarStatus> winners;
 
-    public StubGameService(final List<RoundSnapShot> roundSnapShots, final List<WinnerResponse> winners) {
+    public StubGameService(final List<RoundSnapShot> roundSnapShots, final List<CarStatus> winners) {
         this.roundSnapShots = roundSnapShots;
         this.winners = winners;
     }
@@ -41,7 +41,7 @@ public class StubGameService implements GameService {
     }
 
     @Override
-    public List<WinnerResponse> getWinners() {
+    public List<CarStatus> getWinners() {
         getWinnersCalled = true;
         return winners;
     }

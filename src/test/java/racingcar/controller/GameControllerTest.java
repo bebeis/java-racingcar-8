@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import racingcar.service.dto.CarStatus;
 import racingcar.service.dto.RoundSnapShot;
-import racingcar.service.dto.WinnerResponse;
 
 import java.util.List;
 
@@ -141,9 +140,9 @@ class GameControllerTest {
         @DisplayName("Controller는 GameService로부터 받은 우승자 목록을 OutputView로 전달한다")
         void shouldShowWinners() {
             // given
-            List<WinnerResponse> expectedWinners = List.of(
-                    new WinnerResponse("pobi"),
-                    new WinnerResponse("bebe")
+            List<CarStatus> expectedWinners = List.of(
+                    new CarStatus("pobi", 3),
+                    new CarStatus("bebe", 3)
             );
             StubGameService gameService = new StubGameService(List.of(), expectedWinners);
             GameController controller = new GameController(inputView, outputView, gameService);

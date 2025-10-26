@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import racingcar.service.dto.CarStatus;
 import racingcar.service.dto.RoundSnapShot;
-import racingcar.service.dto.WinnerResponse;
 import racingcar.stub.strategy.AlwaysMoveStrategy;
 import racingcar.stub.strategy.SequentialMoveStrategy;
 
@@ -145,11 +144,11 @@ class GameServiceImplTest {
             gameService.playRounds(3);
 
             // when
-            List<WinnerResponse> winners = gameService.getWinners();
+            List<CarStatus> winners = gameService.getWinners();
 
             // then
             assertThat(winners).hasSize(3);
-            assertThat(winners).extracting(WinnerResponse::name)
+            assertThat(winners).extracting(CarStatus::name)
                     .containsExactlyInAnyOrder("pobi", "bebe", "hehe");
         }
 
@@ -168,7 +167,7 @@ class GameServiceImplTest {
             gameService.playRounds(3);
 
             // when
-            List<WinnerResponse> winners = gameService.getWinners();
+            List<CarStatus> winners = gameService.getWinners();
 
             // then
             assertThat(winners).hasSize(1);
@@ -184,7 +183,7 @@ class GameServiceImplTest {
             gameService.playRounds(5);
 
             // when
-            List<WinnerResponse> winners = gameService.getWinners();
+            List<CarStatus> winners = gameService.getWinners();
 
             // then
             assertThat(winners).hasSize(1);
@@ -207,11 +206,11 @@ class GameServiceImplTest {
             gameService.playRounds(3);
 
             // when
-            List<WinnerResponse> winners = gameService.getWinners();
+            List<CarStatus> winners = gameService.getWinners();
 
             // then
             assertThat(winners).hasSize(2);
-            assertThat(winners).extracting(WinnerResponse::name)
+            assertThat(winners).extracting(CarStatus::name)
                     .containsExactlyInAnyOrder("pobi", "bebe");
         }
     }
