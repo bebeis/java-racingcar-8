@@ -1,5 +1,7 @@
 package racingcar.domain.car;
 
+import racingcar.domain.strategy.MoveStrategy;
+
 import java.util.List;
 
 import static java.util.Comparator.naturalOrder;
@@ -19,7 +21,7 @@ public class Cars {
         }
     }
 
-    public void moveAll(final racingcar.domain.MoveStrategy strategy) {
+    public void moveAll(final MoveStrategy strategy) {
         cars.forEach(car -> car.moveDeterminedBy(strategy));
     }
 
