@@ -21,9 +21,9 @@ class CarsTest {
 
     @BeforeEach
     void init() {
-        car1 = new Car(new CarName("bebe"), CarPosition.initialState());
-        car2 = new Car(new CarName("jeje"), CarPosition.initialState());
-        car3 = new Car(new CarName("hehe"), CarPosition.initialState());
+        car1 = new Car(new CarName("bebe"));
+        car2 = new Car(new CarName("jeje"));
+        car3 = new Car(new CarName("hehe"));
         cars = new Cars(List.of(car1, car2, car3));
     }
 

@@ -20,7 +20,7 @@ class CarTest {
 
         @BeforeEach
         void init() {
-            car = new Car(new CarName("bebe"), CarPosition.initialState());
+            car = new Car(new CarName("bebe"));
         }
 
         @DisplayName("전략이 이동 가능을 반환하면 자동차가 전진한다.")
@@ -53,8 +53,8 @@ class CarTest {
 
         @BeforeEach
         void init() {
-            car1 = new Car(new CarName("bebe"), CarPosition.initialState());
-            car2 = new Car(new CarName("hehe"), CarPosition.initialState());
+            car1 = new Car(new CarName("bebe"));
+            car2 = new Car(new CarName("hehe"));
         }
 
         @DisplayName("같은 위치에 있는 자동차인지 식별할 수 있어야 한다.")

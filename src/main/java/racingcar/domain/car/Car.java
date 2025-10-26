@@ -7,9 +7,9 @@ public class Car implements Comparable<Car> {
     private final CarName name;
     private CarPosition position;
 
-    public Car(final CarName name, final CarPosition position) {
+    public Car(final CarName name) {
         this.name = name;
-        this.position = position;
+        position = CarPosition.initialState();
     }
 
     public void moveDeterminedBy(MoveStrategy strategy) {
