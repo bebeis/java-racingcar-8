@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import racingcar.service.dto.CarStatus;
 import racingcar.service.dto.RoundSnapShot;
 import racingcar.service.dto.WinnerResponse;
 
@@ -117,8 +118,14 @@ class GameControllerTest {
         void shouldShowRoundSnapShots() {
             // given
             List<RoundSnapShot> expectedSnapShots = List.of(
-                    new RoundSnapShot("pobi", 1),
-                    new RoundSnapShot("bebe", 2)
+                    new RoundSnapShot(List.of(
+                            new CarStatus("pobi", 1),
+                            new CarStatus("bebe", 1)
+                    )),
+                    new RoundSnapShot(List.of(
+                            new CarStatus("pobi", 2),
+                            new CarStatus("bebe", 2)
+                    ))
             );
             StubGameService gameService = new StubGameService(expectedSnapShots, List.of());
             GameController controller = new GameController(inputView, outputView, gameService);

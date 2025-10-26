@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import racingcar.service.dto.CarStatus;
 import racingcar.service.dto.RoundSnapShot;
 import racingcar.service.dto.WinnerResponse;
 import racingcar.stub.strategy.AlwaysMoveStrategy;
@@ -77,12 +78,13 @@ class GameServiceImplTest {
 
             // then
             assertThat(snapShots).hasSize(1);
-            assertThat(snapShots.getFirst().position()).isEqualTo(1);
+            assertThat(snapShots.getFirst().cars()).hasSize(1);
+            assertThat(snapShots.getFirst().cars().getFirst().position()).isEqualTo(1);
         }
 
         @Test
-        @DisplayName("라운드 스냅샷에 모든 자동차의 이름과 위치 정보가 포함된다")
-        void shouldIncludeAllCarsInSnapShot() {
+        @DisplayName("각 라운드마다 모든 자동차의 이름과 위치 정보가 포함된다")
+        void shouldIncludeAllCarsInEachRound() {
             // given
             GameService gameService = new GameServiceImpl(new AlwaysMoveStrategy(), repository);
             gameService.setUpCarNames(List.of("pobi", "bebe"));
@@ -92,11 +94,34 @@ class GameServiceImplTest {
 
             // then
             assertThat(snapShots).hasSize(2);
-            assertThat(snapShots).extracting(RoundSnapShot::name)
-                    .containsExactlyInAnyOrder("pobi", "bebe");
-            assertThat(snapShots).allSatisfy(snapshot ->
-                    assertThat(snapshot.position()).isGreaterThanOrEqualTo(0)
+            assertThat(snapShots).allSatisfy(roundSnapShot ->
+                    assertThat(roundSnapShot.cars()).hasSize(2)
             );
+
+            RoundSnapShot lastRound = snapShots.get(1);
+            assertThat(lastRound.cars()).extracting(CarStatus::name)
+                    .containsExactlyInAnyOrder("pobi", "bebe");
+            assertThat(lastRound.cars()).allSatisfy(car ->
+                    assertThat(car.position()).isEqualTo(2)
+            );
+        }
+
+        @Test
+        @DisplayName("여러 라운드의 진행 상황을 모두 기록한다")
+        void shouldRecordAllRounds() {
+            // given
+            GameService gameService = new GameServiceImpl(new AlwaysMoveStrategy(), repository);
+            gameService.setUpCarNames(List.of("pobi"));
+
+            // when
+            List<RoundSnapShot> snapShots = gameService.playRounds(3);
+
+            // then
+            assertThat(snapShots).hasSize(3);
+
+            assertThat(snapShots.get(0).cars().getFirst().position()).isEqualTo(1);
+            assertThat(snapShots.get(1).cars().getFirst().position()).isEqualTo(2);
+            assertThat(snapShots.get(2).cars().getFirst().position()).isEqualTo(3);
         }
     }
 
