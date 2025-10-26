@@ -1,12 +1,8 @@
 package racingcar.view;
 
-import racingcar.presenter.GamePresenter;
-
 public interface InputView {
 
-    void bindPresenter(GamePresenter presenter);
+    String readCarNames();
 
-    void requestCarNames();
-
-    void requestTryCount();
+    int readTryCount();
 }

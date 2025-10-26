@@ -5,7 +5,7 @@ import racingcar.service.dto.WinnerResponse;
 
 import java.util.List;
 
-public interface RacingGame {
+public interface GameService {
 
     void setUpCarNames(List<String> carNames);
 

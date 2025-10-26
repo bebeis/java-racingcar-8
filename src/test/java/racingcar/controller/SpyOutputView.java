@@ -1,4 +1,4 @@
-package racingcar.presenter;
+package racingcar.controller;
 
 import racingcar.service.dto.RoundSnapShot;
 import racingcar.service.dto.WinnerResponse;
