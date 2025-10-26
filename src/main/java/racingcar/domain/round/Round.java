@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.round;
 
 import static racingcar.error.ErrorMessage.CANNOT_PROCEED_WHEN_FINISHED;
 import static racingcar.error.ErrorMessage.NON_POSITIVE_TRY_COUNT;

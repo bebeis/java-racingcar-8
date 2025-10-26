@@ -1,11 +1,11 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import racingcar.strategy.AlwaysMoveStrategy;
-import racingcar.strategy.NeverMoveStrategy;
+import racingcar.domain.strategy.AlwaysMoveStrategy;
+import racingcar.domain.strategy.NeverMoveStrategy;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

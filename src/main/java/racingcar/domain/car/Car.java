@@ -1,6 +1,4 @@
-package racingcar.domain;
-
-import racingcar.strategy.MoveStrategy;
+package racingcar.domain.car;
 
 public class Car implements Comparable<Car> {
 
@@ -12,7 +10,7 @@ public class Car implements Comparable<Car> {
         this.position = position;
     }
 
-    public void moveDeterminedBy(MoveStrategy strategy) {
+    public void moveDeterminedBy(racingcar.domain.MoveStrategy strategy) {
         if (strategy.canMove()) {
             position = position.moveNext();
         }

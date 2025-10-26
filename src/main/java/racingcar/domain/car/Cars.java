@@ -1,6 +1,4 @@
-package racingcar.domain;
-
-import racingcar.strategy.MoveStrategy;
+package racingcar.domain.car;
 
 import java.util.List;
 
@@ -21,7 +19,7 @@ public class Cars {
         }
     }
 
-    public void moveAll(final MoveStrategy strategy) {
+    public void moveAll(final racingcar.domain.MoveStrategy strategy) {
         cars.forEach(car -> car.moveDeterminedBy(strategy));
     }
 
