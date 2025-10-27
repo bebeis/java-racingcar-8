@@ -1,6 +1,5 @@
 package racingcar.view;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.service.dto.CarStatus;
@@ -11,12 +10,6 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class OutputFormatterTest {
-    OutputFormatter formatter;
-
-    @BeforeEach
-    void init() {
-        formatter = new OutputFormatter();
-    }
 
     @DisplayName("라운드 스냅샷 1개에 대해서 포맷팅한다.")
     @Test
@@ -29,7 +22,7 @@ class OutputFormatterTest {
         ));
 
         // when
-        String result = formatter.formatRoundSnapShots(List.of(snapShot));
+        String result = OutputFormatter.formatRoundSnapShots(List.of(snapShot));
 
         // then
         String expected = """
@@ -56,7 +49,7 @@ class OutputFormatterTest {
         );
 
         // when
-        String result = formatter.formatRoundSnapShots(snapShots);
+        String result = OutputFormatter.formatRoundSnapShots(snapShots);
 
         // then
         String expected = """
@@ -76,7 +69,7 @@ class OutputFormatterTest {
         CarStatus winner = new CarStatus("bebe", 1);
 
         // when
-        String formatted = formatter.formatWinners(List.of(winner));
+        String formatted = OutputFormatter.formatWinners(List.of(winner));
 
         // then
         assertThat(formatted).isEqualTo("bebe");
@@ -92,7 +85,7 @@ class OutputFormatterTest {
         );
 
         // when
-        String formatted = formatter.formatWinners(winners);
+        String formatted = OutputFormatter.formatWinners(winners);
 
         // then
         assertThat(formatted).isEqualTo("bebe, pobi");

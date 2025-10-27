@@ -14,24 +14,27 @@ public class OutputFormatter {
     private static final String NAME_SEPARATOR = ", ";
     private static final String END_LINE = "\n";
 
-    public String formatRoundSnapShots(final List<RoundSnapShot> snapShots) {
+    private OutputFormatter() {
+    }
+
+    public static String formatRoundSnapShots(final List<RoundSnapShot> snapShots) {
         return snapShots.stream()
-                .map(this::formatRoundSnapShot)
+                .map(OutputFormatter::formatRoundSnapShot)
                 .collect(Collectors.joining(ROUND_SEPARATOR)) + END_LINE;
     }
 
-    private String formatRoundSnapShot(final RoundSnapShot snapShot) {
+    private static String formatRoundSnapShot(final RoundSnapShot snapShot) {
         return snapShot.cars()
                 .stream()
-                .map(this::formatCarStatus)
+                .map(OutputFormatter::formatCarStatus)
                 .collect(Collectors.joining(CAR_SEPARATOR));
     }
 
-    private String formatCarStatus(final CarStatus status) {
+    private static String formatCarStatus(final CarStatus status) {
         return status.name() + NAME_POSITION_DELIMITER + POSITION_MARKER.repeat(status.position());
     }
 
-    public String formatWinners(final List<CarStatus> winners) {
+    public static String formatWinners(final List<CarStatus> winners) {
         return winners.stream()
                 .map(CarStatus::name)
                 .collect(Collectors.joining(NAME_SEPARATOR));
