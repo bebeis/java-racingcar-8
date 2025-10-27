@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 import racingcar.error.ErrorMessage;
 import racingcar.stub.strategy.SequentialMoveStrategy;
 
@@ -13,7 +15,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarsTest {
-
     Car car1;
     Car car2;
     Car car3;
@@ -32,10 +33,10 @@ class CarsTest {
     class CreateTest {
 
         @DisplayName("자동차 목록이 비어있으면 예외를 발생시킨다.")
-        @Test
-        void shouldThrowException_whenCarListIsEmpty() {
-
-            assertThatThrownBy(() -> new Cars(List.of()))
+        @ParameterizedTest
+        @NullAndEmptySource
+        void shouldThrowException_whenCarListIsEmpty(List<Car> cars) {
+            assertThatThrownBy(() -> new Cars(cars))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(ErrorMessage.EMPTY_CAR_LIST.message());
         }

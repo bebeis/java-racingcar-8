@@ -2,6 +2,8 @@ package racingcar.domain.car;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 import racingcar.error.ErrorMessage;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -17,9 +19,10 @@ class CarNameTest {
     }
 
     @DisplayName("자동차 이름이 비어있을 수 없다.")
-    @Test
-    void shouldThrowsException_whenNameIsEmpty() {
-        assertThatThrownBy(() -> new CarName(""))
+    @ParameterizedTest
+    @NullAndEmptySource
+    void shouldThrowsException_whenNameIsEmpty(String text) {
+        assertThatThrownBy(() -> new CarName(text))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.EMPTY_CAR_NAME.message());
     }
