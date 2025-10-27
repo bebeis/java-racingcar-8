@@ -1,7 +1,6 @@
 package racingcar.service;
 
 import racingcar.domain.car.Car;
-import racingcar.domain.car.CarName;
 import racingcar.domain.car.Cars;
 import racingcar.domain.car.CarsRepository;
 import racingcar.domain.round.Round;
@@ -23,12 +22,7 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public void prepareCars(final List<String> carNames) {
-        List<Car> carList = carNames.stream()
-                .map(CarName::new)
-                .map(Car::new)
-                .toList();
-
-        Cars cars = new Cars(carList);
+        Cars cars = Cars.from(carNames);
         repository.save(cars);
     }
 

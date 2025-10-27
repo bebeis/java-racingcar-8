@@ -15,6 +15,14 @@ public class Cars {
         this.cars = List.copyOf(cars);
     }
 
+    public static Cars from(List<String> carNames) {
+        List<Car> carList = carNames.stream()
+                .map(CarName::new)
+                .map(Car::new)
+                .toList();
+        return new Cars(carList);
+    }
+
     private void validateNotEmpty(final List<Car> cars) {
         if (cars == null || cars.isEmpty()) {
             throw new IllegalArgumentException(EMPTY_CAR_LIST.message());
