@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class OutputFormatter {
-
     private static final String NAME_POSITION_DELIMITER = " : ";
     private static final String POSITION_MARKER = "-";
     private static final String CAR_SEPARATOR = "\n";
