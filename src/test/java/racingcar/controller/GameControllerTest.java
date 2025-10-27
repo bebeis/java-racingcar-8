@@ -17,14 +17,14 @@ class GameControllerTest {
     @Nested
     @DisplayName("입력 읽기 테스트")
     class InputReadTest {
-        StubInputView inputView;
+        StubUserInterface inputView;
         SpyOutputView outputView;
         StubGameService gameService;
         GameController controller;
 
         @BeforeEach
         void init() {
-            inputView = new StubInputView("pobi,bebe", 5);
+            inputView = new StubUserInterface("pobi,bebe", 5);
             outputView = new SpyOutputView();
             gameService = new StubGameService(List.of(), List.of());
             controller = new GameController(inputView, outputView, gameService);
@@ -54,14 +54,14 @@ class GameControllerTest {
     @Nested
     @DisplayName("GameService 호출 테스트")
     class GameServiceCallTest {
-        StubInputView inputView;
+        StubUserInterface inputView;
         SpyOutputView outputView;
         StubGameService gameService;
         GameController controller;
 
         @BeforeEach
         void init() {
-            inputView = new StubInputView("pobi,bebe", 5);
+            inputView = new StubUserInterface("pobi,bebe", 5);
             outputView = new SpyOutputView();
             gameService = new StubGameService(List.of(), List.of());
             controller = new GameController(inputView, outputView, gameService);
@@ -103,12 +103,12 @@ class GameControllerTest {
     @Nested
     @DisplayName("OutputView 호출 테스트")
     class OutputViewCallTest {
-        StubInputView inputView;
+        StubUserInterface inputView;
         SpyOutputView outputView;
 
         @BeforeEach
         void init() {
-            inputView = new StubInputView("pobi,bebe", 5);
+            inputView = new StubUserInterface("pobi,bebe", 5);
             outputView = new SpyOutputView();
         }
 

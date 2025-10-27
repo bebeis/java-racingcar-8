@@ -1,6 +1,6 @@
 package racingcar.view;
 
-public interface InputView {
+public interface UserInterface {
 
     String readCarNames();
 

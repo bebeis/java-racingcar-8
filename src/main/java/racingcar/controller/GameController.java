@@ -4,27 +4,27 @@ import racingcar.service.GameService;
 import racingcar.service.dto.CarStatus;
 import racingcar.service.dto.RoundSnapShot;
 import racingcar.util.CommaSeparator;
-import racingcar.view.InputView;
 import racingcar.view.OutputView;
+import racingcar.view.UserInterface;
 
 import java.util.List;
 
 public class GameController {
-    private InputView inputView;
+    private UserInterface userInterface;
     private OutputView outputView;
     private GameService gameService;
 
-    public GameController(final InputView inputView, final OutputView outputView, final GameService gameService) {
-        this.inputView = inputView;
+    public GameController(final UserInterface userInterface, final OutputView outputView, final GameService gameService) {
+        this.userInterface = userInterface;
         this.outputView = outputView;
         this.gameService = gameService;
     }
 
     public void run() {
-        List<String> carNames = CommaSeparator.split(inputView.readCarNames());
+        List<String> carNames = CommaSeparator.split(userInterface.readCarNames());
         gameService.prepareCars(carNames);
 
-        int tryCount = inputView.readTryCount();
+        int tryCount = userInterface.readTryCount();
         List<RoundSnapShot> roundSnapShots = gameService.playRounds(tryCount);
         outputView.showRoundSnapShots(roundSnapShots);
 

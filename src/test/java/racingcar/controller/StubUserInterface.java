@@ -1,8 +1,8 @@
 package racingcar.controller;
 
-import racingcar.view.InputView;
+import racingcar.view.UserInterface;
 
-public class StubInputView implements InputView {
+public class StubUserInterface implements UserInterface {
 
     // 검증 대상 - 호출 여부
     boolean requestedCarNames = false;
@@ -12,7 +12,7 @@ public class StubInputView implements InputView {
     private final String carNames;
     private final int tryCount;
 
-    public StubInputView(final String carNames, final int tryCount) {
+    public StubUserInterface(final String carNames, final int tryCount) {
         this.carNames = carNames;
         this.tryCount = tryCount;
     }

@@ -7,15 +7,15 @@ import racingcar.service.GameService;
 import racingcar.service.GameServiceImpl;
 import racingcar.view.ConsoleOutputView;
 import racingcar.view.ConsoleUserInterface;
-import racingcar.view.InputView;
 import racingcar.view.OutputView;
+import racingcar.view.UserInterface;
 
 public class Application {
     public static void main(String[] args) {
-        InputView inputView = new ConsoleUserInterface();
+        UserInterface userInterface = new ConsoleUserInterface();
         OutputView outputView = new ConsoleOutputView();
         GameService gameService = new GameServiceImpl(new RandomMoveStrategy(), new CarsMemoryRepository());
-        GameController gameController = new GameController(inputView, outputView, gameService);
+        GameController gameController = new GameController(userInterface, outputView, gameService);
         gameController.run();
     }
 }
