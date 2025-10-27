@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.view.UserInterface;
+import racingcar.ui.UserInterface;
 
 public class StubUserInterface implements UserInterface {
 

@@ -5,10 +5,10 @@ import racingcar.domain.strategy.RandomMoveStrategy;
 import racingcar.persistence.CarsMemoryRepository;
 import racingcar.service.GameService;
 import racingcar.service.GameServiceImpl;
+import racingcar.ui.ConsoleUserInterface;
+import racingcar.ui.UserInterface;
 import racingcar.view.ConsoleOutputView;
-import racingcar.view.ConsoleUserInterface;
 import racingcar.view.OutputView;
-import racingcar.view.UserInterface;
 
 public class Application {
     public static void main(String[] args) {

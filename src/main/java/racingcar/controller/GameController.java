@@ -3,9 +3,9 @@ package racingcar.controller;
 import racingcar.service.GameService;
 import racingcar.service.dto.CarStatus;
 import racingcar.service.dto.RoundSnapShot;
+import racingcar.ui.UserInterface;
 import racingcar.util.CommaSeparator;
 import racingcar.view.OutputView;
-import racingcar.view.UserInterface;
 
 import java.util.List;
 
