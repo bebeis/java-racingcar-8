@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface GameService {
 
-    void setUpCarNames(List<String> carNames);
+    void prepareCars(List<String> carNames);
 
     List<RoundSnapShot> playRounds(int tryCount);
 

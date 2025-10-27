@@ -34,7 +34,7 @@ class GameServiceImplTest {
             List<String> carNames = List.of("pobi", "bebe");
 
             // when
-            gameService.setUpCarNames(carNames);
+            gameService.prepareCars(carNames);
 
             // then
             assertThat(repository.findCars()).isNotNull();
@@ -48,7 +48,7 @@ class GameServiceImplTest {
             List<String> carNames = List.of("pobi");
 
             // when
-            gameService.setUpCarNames(carNames);
+            gameService.prepareCars(carNames);
 
             // then
             assertThat(repository.findCars().getCars()).hasSize(1);
@@ -70,7 +70,7 @@ class GameServiceImplTest {
         void shouldPlayOneRound() {
             // given
             GameService gameService = new GameServiceImpl(new AlwaysMoveStrategy(), repository);
-            gameService.setUpCarNames(List.of("pobi"));
+            gameService.prepareCars(List.of("pobi"));
 
             // when
             List<RoundSnapShot> snapShots = gameService.playRounds(1);
@@ -86,7 +86,7 @@ class GameServiceImplTest {
         void shouldIncludeAllCarsInEachRound() {
             // given
             GameService gameService = new GameServiceImpl(new AlwaysMoveStrategy(), repository);
-            gameService.setUpCarNames(List.of("pobi", "bebe"));
+            gameService.prepareCars(List.of("pobi", "bebe"));
 
             // when
             List<RoundSnapShot> snapShots = gameService.playRounds(2);
@@ -110,7 +110,7 @@ class GameServiceImplTest {
         void shouldRecordAllRounds() {
             // given
             GameService gameService = new GameServiceImpl(new AlwaysMoveStrategy(), repository);
-            gameService.setUpCarNames(List.of("pobi"));
+            gameService.prepareCars(List.of("pobi"));
 
             // when
             List<RoundSnapShot> snapShots = gameService.playRounds(3);
@@ -140,7 +140,7 @@ class GameServiceImplTest {
         void shouldAllWinIfSamePosition() {
             // given
             GameService gameService = new GameServiceImpl(new AlwaysMoveStrategy(), repository);
-            gameService.setUpCarNames(List.of("pobi", "bebe", "hehe"));
+            gameService.prepareCars(List.of("pobi", "bebe", "hehe"));
             gameService.playRounds(3);
 
             // when
@@ -163,7 +163,7 @@ class GameServiceImplTest {
                             true, true),
                     repository
             );
-            gameService.setUpCarNames(List.of("pobi", "bebe"));
+            gameService.prepareCars(List.of("pobi", "bebe"));
             gameService.playRounds(3);
 
             // when
@@ -179,7 +179,7 @@ class GameServiceImplTest {
         void shouldSelectOnlyCarAsWinner() {
             // given
             GameService gameService = new GameServiceImpl(new AlwaysMoveStrategy(), repository);
-            gameService.setUpCarNames(List.of("pobi"));
+            gameService.prepareCars(List.of("pobi"));
             gameService.playRounds(5);
 
             // when
@@ -202,7 +202,7 @@ class GameServiceImplTest {
                     ),
                     repository
             );
-            gameService.setUpCarNames(List.of("pobi", "bebe", "hehe"));
+            gameService.prepareCars(List.of("pobi", "bebe", "hehe"));
             gameService.playRounds(3);
 
             // when

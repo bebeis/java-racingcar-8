@@ -22,7 +22,7 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public void setUpCarNames(final List<String> carNames) {
+    public void prepareCars(final List<String> carNames) {
         List<Car> carList = carNames.stream()
                 .map(CarName::new)
                 .map(Car::new)

@@ -12,10 +12,10 @@ public class StubGameService implements GameService {
     // 검증 대상 - 메서드 호출 여부 및 인자
     boolean setUpCarNamesCalled = false;
     List<String> receivedCarNames = new ArrayList<>();
-    
+
     boolean playRoundsCalled = false;
     int receivedTryCount = 0;
-    
+
     boolean getWinnersCalled = false;
 
     // 반환할 값
@@ -28,7 +28,7 @@ public class StubGameService implements GameService {
     }
 
     @Override
-    public void setUpCarNames(final List<String> carNames) {
+    public void prepareCars(final List<String> carNames) {
         setUpCarNamesCalled = true;
         receivedCarNames = carNames;
     }

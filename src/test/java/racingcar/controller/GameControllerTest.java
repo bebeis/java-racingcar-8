@@ -69,7 +69,7 @@ class GameControllerTest {
 
         @Test
         @DisplayName("Controller는 입력받은 자동차 이름으로 GameService.setUpCarNames()를 호출한다")
-        void shouldCallSetUpCarNames() {
+        void shouldCallPrepareCars() {
             // when
             controller.run();
 

@@ -22,7 +22,7 @@ public class GameController {
 
     public void run() {
         List<String> carNames = CommaSeparator.split(inputView.readCarNames());
-        gameService.setUpCarNames(carNames);
+        gameService.prepareCars(carNames);
 
         int tryCount = inputView.readTryCount();
         List<RoundSnapShot> roundSnapShots = gameService.playRounds(tryCount);
