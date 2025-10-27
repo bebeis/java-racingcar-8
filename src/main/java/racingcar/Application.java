@@ -2,7 +2,7 @@ package racingcar;
 
 import racingcar.controller.GameController;
 import racingcar.domain.strategy.RandomMoveStrategy;
-import racingcar.repository.CarsMemoryRepository;
+import racingcar.persistence.CarsMemoryRepository;
 import racingcar.service.GameService;
 import racingcar.service.GameServiceImpl;
 import racingcar.view.ConsoleOutputView;

@@ -1,6 +1,7 @@
-package racingcar.repository;
+package racingcar.persistence;
 
 import racingcar.domain.car.Cars;
+import racingcar.domain.car.CarsRepository;
 
 public class CarsMemoryRepository implements CarsRepository {
     private Cars cars;

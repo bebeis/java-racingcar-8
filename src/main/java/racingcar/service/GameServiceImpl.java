@@ -3,9 +3,9 @@ package racingcar.service;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.CarName;
 import racingcar.domain.car.Cars;
+import racingcar.domain.car.CarsRepository;
 import racingcar.domain.round.Round;
 import racingcar.domain.strategy.MoveStrategy;
-import racingcar.repository.CarsRepository;
 import racingcar.service.dto.CarStatus;
 import racingcar.service.dto.RoundSnapShot;
 

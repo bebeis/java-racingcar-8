@@ -1,6 +1,4 @@
-package racingcar.repository;
-
-import racingcar.domain.car.Cars;
+package racingcar.domain.car;
 
 public interface CarsRepository {
 

@@ -1,7 +1,7 @@
 package racingcar.service;
 
 import racingcar.domain.car.Cars;
-import racingcar.repository.CarsRepository;
+import racingcar.domain.car.CarsRepository;
 
 public class FakeCarsRepository implements CarsRepository {
 

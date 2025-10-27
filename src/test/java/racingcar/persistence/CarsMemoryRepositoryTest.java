@@ -1,4 +1,4 @@
-package racingcar.repository;
+package racingcar.persistence;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
