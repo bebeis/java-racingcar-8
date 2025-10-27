@@ -7,20 +7,26 @@
 
 ## Layer 구조
 
+### View
+
+- 모델로부터 화면을 그리는 역할 담당
+- OutputView
+
 ### Presentation Layer
 
-- GameController
-- Model을 호출하고 View에게 Output을 그리게 한다.
+- 요청을 받아 Model을 호출하고 View에게 Output을 그리게 한다.
+- GameController && ConsoleUserInterface
 
 ### Service Layer
 
-- GameService
 - Repository와 상호작용, 도메인 객체를 호출하여 DTO 반환
+- GameService
 
 ### Domain
 
 - 도메인 규칙을 객체로 모델링하는데 집중
 - 클래스가 다루는 데이터와 책임을 기준으로 설계
+- Car, Cars, CarPosition, CarName, Round, MoveStrategy, CarsRepository
 
 ### Persistence Layer
 
