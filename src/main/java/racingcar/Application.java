@@ -1,21 +1,23 @@
 package racingcar;
 
-import racingcar.controller.GameController;
 import racingcar.domain.strategy.RandomMoveStrategy;
+import racingcar.model.RacingGameModel;
+import racingcar.model.RacingGameModelImpl;
 import racingcar.persistence.CarsMemoryRepository;
-import racingcar.service.GameService;
-import racingcar.service.GameServiceImpl;
-import racingcar.view.ConsoleOutputView;
-import racingcar.view.ConsoleUserInterface;
-import racingcar.view.OutputView;
-import racingcar.view.UserInterface;
+import racingcar.presenter.ConsoleInputHandler;
+import racingcar.presenter.RacingGamePresenter;
+import racingcar.view.ConsoleInputReader;
+import racingcar.view.ConsoleRacingGameView;
+import racingcar.view.InputReader;
+import racingcar.view.RacingGameView;
 
 public class Application {
     public static void main(String[] args) {
-        UserInterface userInterface = new ConsoleUserInterface();
-        OutputView outputView = new ConsoleOutputView();
-        GameService gameService = new GameServiceImpl(new RandomMoveStrategy(), new CarsMemoryRepository());
-        GameController gameController = new GameController(userInterface, outputView, gameService);
-        gameController.run();
+        InputReader inputReader = new ConsoleInputReader();
+        RacingGameView view = new ConsoleRacingGameView(inputReader);
+        RacingGameModel model = new RacingGameModelImpl(new RandomMoveStrategy(), new CarsMemoryRepository());
+        RacingGamePresenter.InputHandler inputHandler = new ConsoleInputHandler(inputReader);
+        RacingGamePresenter presenter = new RacingGamePresenter(view, model, inputHandler);
+        presenter.start();
     }
 }
